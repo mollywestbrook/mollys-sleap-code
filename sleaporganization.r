@@ -1,7 +1,7 @@
 ### SLEAP Organization
 
 library(rhdf5)
-library(here)
+library(here) #this script uses here-style working directory calls, noted below
 library(tidyverse)
 library(zoo)
 library(reshape2)
@@ -10,9 +10,9 @@ library(data.table)
 #set file name to call in via rdhdf5 package
 filename <- "labels.v002_20230324.000_20230209_test2_5larva_15dpf_25fps_complete.analysis.h5"
 
-trialdata_bits <- h5ls(here(filename))
+trialdata_bits <- h5ls(here(filename)) #first instance of here -- should be able to just setwd instead
 
-trialdata_tracks <- as.data.frame(h5read(here(filename), "/tracks"))
+trialdata_tracks <- as.data.frame(h5read(here(filename), "/tracks")) #again, but as long as you've set the wd you can just remove the here() function
 # nrow(trialdata_tracks)
 # ncol(trialdata_tracks)
 # 
